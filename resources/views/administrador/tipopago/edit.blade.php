@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="clas-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Comprobante: {{$tipocomprobante->id}}</h3>
+			<h3>Editar Tipo de Pago: {{$tipoPago->id}}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,13 +14,13 @@
 			@endif
 		</div>
 	</div>
-			{!!Form::model($tipocomprobante,['method'=>'PATCH','route'=>['comprobante.update',$tipocomprobante->id]])!!}
+			{!!Form::model($tipoPago,['method'=>'PATCH','route'=>['tipopago.update',$tipoPago->id]])!!}
 			{{Form::token()}}
 	<div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="tipo_comprobante">Comprobante</label>
-				<input type="text" name="tipo_comprobante" required value="{{$tipocomprobante->tipo_comprobante}}" class="form-control" placeholder="Tipo de Documento..">
+				<label for="tipopago">Comprobante</label>
+				<input type="text" name="tipopago" required value="{{$tipoPago->nombre}}" class="form-control" >
 			</div>			
 		</div>
 		

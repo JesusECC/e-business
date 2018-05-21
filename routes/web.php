@@ -19,6 +19,7 @@ Route::resource('partner/usuario','PersonaController');
 Route::resource('partner/clientes','ClienteController');
 Route::resource('administrador/comprobante','TipoComprobanteController');
 Route::resource('administrador/usuario','UsuarioController');
+Route::resource('administrador/tipopago','TipoPagoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

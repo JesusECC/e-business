@@ -112,7 +112,7 @@ class TipoComprobanteController extends Controller
     {
         //
        //TipoComprobante::destroy($id);
-       $tipocomprobante=TipoComprobante::findOrFail($id);;
+       $tipocomprobante=TipoComprobante::findOrFail($id);
 	   $tipocomprobante -> delete(); 
        return Redirect::to('administrador/comprobante');
     }
