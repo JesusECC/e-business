@@ -22,7 +22,7 @@ Route::resource('administrador/comprobante','TipoComprobanteController');
 Route::resource('administrador/usuario','UsuarioController');
 Route::resource('administrador/tipopago','TipoPagoController');
 Route::resource('administrador/tipopersona','TipoPersonaController');
-Route::resource('','HomeController');
+//Route::resource('','HomeController');
 Route::auth();
 //Auth::routes();
 
