@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="clas-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Tipo de Documentos</h3>
+			<h3>Nuevo Tipo de Documento</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,13 +14,13 @@
 			@endif
 		</div>
 	</div>
-			{!!Form::open(array('url'=>'partner/tipodocumento','method'=>'POST','autocomplete'=>'off'))!!}
+			{!!Form::open(array('url'=>'administrador/tipodocumento','method'=>'POST','autocomplete'=>'off'))!!}
 			{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" required value="{{old('nombre')}}" class="form-control" placeholder="nombre..">
+				<input type="text" name="nombre" required value="{{old('nombre')}}" class="form-control" placeholder="nombre.v.">
 			</div>			
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

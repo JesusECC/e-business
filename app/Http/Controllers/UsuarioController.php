@@ -15,6 +15,9 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         //
@@ -36,6 +39,7 @@ class UsuarioController extends Controller
     public function create()
     {
         //
+        return view("administrador.usuario.create");
     }
 
     /**
@@ -44,9 +48,16 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioFromRequest $request)
     {
         //
+        $usuario=new User;
+        $usuario->name=$request->get('name');
+        $usuario->email=$request->get('email');
+        $usuario->password=bcrypt($request->get('password'));
+        $usuario->save();
+        return Redirect::to('administrador/usuario');
+
     }
 
     /**
@@ -58,6 +69,7 @@ class UsuarioController extends Controller
     public function show($id)
     {
         //
+        return view("administrador.uasuario.show",["usuario"=>User::findOrFail($id)]);
     }
 
     /**
@@ -69,6 +81,7 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         //
+        return view("administrador.usuario.edit",["usuario"=>User::findOrFail($id)]);
     }
 
     /**
@@ -78,9 +91,16 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuarioFromRequest $request, $id)
     {
         //
+        $usuario=User::findOrFail($id);
+        $usuario->name=$request->get('name');
+        $usuario->email=$request->get('email');
+        $usuario->password=bcrypt($request->get('password'));
+        $usuario->update();
+        return Redirect::to('administrador/usuario');
+
     }
 
     /**
@@ -92,5 +112,7 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         //
+        $usuario=DB::table('users')->where('id','=',$id)->delete();
+        return Redirect::to('administrador/usuario');
     }
 }

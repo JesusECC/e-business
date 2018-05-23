@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="clas-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Tipo de Comprobante</h3>
+			<h3>Nuevo Tipo Persona</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,13 +14,13 @@
 			@endif
 		</div>
 	</div>
-			{!!Form::open(array('url'=>'administrador/comprobante','method'=>'POST','autocomplete'=>'off'))!!}
+			{!!Form::open(array('url'=>'administrador/tipopersona','method'=>'POST','autocomplete'=>'off'))!!}
 			{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="comprobante">Comprobante</label>
-				<input type="text" name="comprobante" required value="{{old('comprobante')}}" class="form-control" placeholder="nombre..">
+				<label for="persona">Persona</label>
+				<input type="text" name="persona" required value="{{old('persona')}}" class="form-control" placeholder="Persona..">
 			</div>			
 		</div>
 		

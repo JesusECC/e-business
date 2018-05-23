@@ -102,9 +102,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{'partner/tipodocumento'}}"><i class="fa fa-circle-o"></i> Tipo de Documento</a></li>
-                <li><a href="{{'partner/usuario'}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a href="{{'partner/clientes'}}"><i class="fa fa-circle-o"></i> Clietes</a></li>
+                <li><a href="{{url('partner/tipodocumento')}}"><i class="fa fa-circle-o"></i> Tipo de Documento</a></li>
+                <li><a href="{{url('partner/usuario')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                <li><a href="{{url('partner/clientes')}}"><i class="fa fa-circle-o"></i> Clietes</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -114,11 +114,11 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{'administrador/usuario'}}"><i class="fa fa-circle-o"></i> usuarios</a></li>
-                <li><a href="{{'administrador/tipodocumento'}}"><i class="fa fa-circle-o"></i> Tipo de Documento</a></li>
-                <li><a href="{{'administrador/tipopersona'}}"><i class="fa fa-circle-o"></i> Tipo Persona</a></li>
-                <li><a href="{{'administrador/comprobante'}}"><i class="fa fa-circle-o"></i> comprobante</a></li>
-                <li><a href="{{'administrador/tipopago'}}"><i class="fa fa-circle-o"></i> Tipo Pago</a></li>
+                <li><a href="{{url('administrador/usuario')}}"><i class="fa fa-circle-o"></i> usuarios</a></li>
+                <li><a href="{{url('administrador/tipodocumento')}}"><i class="fa fa-circle-o"></i> Tipo de Documento</a></li>
+                <li><a href="{{url('administrador/tipopersona')}}"><i class="fa fa-circle-o"></i> Tipo Persona</a></li>
+                <li><a href="{{url('administrador/comprobante')}}"><i class="fa fa-circle-o"></i> comprobante</a></li>
+                <li><a href="{{url('administrador/tipopago')}}"><i class="fa fa-circle-o"></i> Tipo Pago</a></li>
               </ul>
             </li>
             <!--

@@ -7,10 +7,10 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span  aria-hidden="true">x</span>
 			</button>
-			<h4 class="modal-title">Eliminar Tipo de Documento {{$td->name}}</h4>
+			<h4 class="modal-title">Eliminar Usuario {{$td->name}}</h4>
 		</div>
 		<div class="modal-body">
-			<p>Confirme si desea Eliminar el tipo de documento {{$td->name}}</p>
+			<p>Confirme si desea Eliminar el Usuario {{$td->name}}</p>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">

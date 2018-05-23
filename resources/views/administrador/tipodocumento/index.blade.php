@@ -1,14 +1,14 @@
-@extends ('layouts.admin')
+<!--@extends ('layouts.admin')
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>
-				Listado de Tipo de Documento 
+				Lista de Tipo de Documento
 				<a href="tipodocumento/create">
-					<button class="btn btn-primary">Nuevo</button>
+					<button class="btn btn-primary">Nuevo8</button>
 				</a>
 			</h3>
-			@include('partner.tipodocumento.search')
+			@include('administrador.tipodocumento.search')
 		</div>
 	</div>
 	<hr>
@@ -33,7 +33,7 @@
 							<a href="" data-target="#modal-delete-{{$td->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 						</td>
 					</tr>
-					@include('partner.tipodocumento.modal')
+					@include('administrador.tipodocumento.modal')
 					@endforeach
 				</table>
 			</div>
@@ -41,4 +41,4 @@
 			{{$tipodocumento->render()}}
 		</div>
 	</div>
-@endsection
+@endsection-->

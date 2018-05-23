@@ -63,7 +63,7 @@ class TipodocumentoController extends Controller
         $tipodocumento->descripcion=$request->get('descripcion');
         $tipodocumento->condicion='1';
         $tipodocumento->save();
-        return Redirect::to('partner/tipodocumento');
+        return Redirect::to('administrador/tipodocumento');
     }
 
     /**
@@ -74,7 +74,7 @@ class TipodocumentoController extends Controller
      */
     public function show($id)
     {
-        return view("partner.tipodocumento.show",["tipodocumento"=>Tipodocumento::findOrFail($id)]);
+        return view("administrador.tipodocumento.show",["tipodocumento"=>Tipodocumento::findOrFail($id)]);
     }
 
     /**
@@ -85,7 +85,7 @@ class TipodocumentoController extends Controller
      */
     public function edit($id)
     {
-        return view("partner.tipodocumento.edit",["tipodocumento"=>Tipodocumento::findOrFail($id)]);
+        return view("administrador.tipodocumento.edit",["tipodocumento"=>Tipodocumento::findOrFail($id)]);
     }
 
     /**
@@ -101,7 +101,7 @@ class TipodocumentoController extends Controller
         $tipodocumento->tipo_doc=$request->get('tipo_doc');
         $tipodocumento->descripcion=$request->get('descripcion');
         $tipodocumento->update();
-        return Redirect::to('partner/tipodocumento');
+        return Redirect::to('administrador/tipodocumento');
     }
 
     /**
@@ -115,6 +115,6 @@ class TipodocumentoController extends Controller
         $tipodocumento=Tipodocumento::findOrFail($id);
         $tipodocumento->condicion='0';
         $tipodocumento->update();
-        return Redirect::to('partner/tipodocumento');
+        return Redirect::to('administrador/tipodocumento');
     }
 }
