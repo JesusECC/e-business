@@ -29,11 +29,12 @@ class PersonaController extends Controller
             //sentencia sql en laravel donde where necesita 3 parametros 
             $persona=DB::table('persona')
             ->where('num_docum','LIKE','%'.$query.'%')
+            //->where('nombres','LIKE','%'.$query.'%')
             ->where('tipo_persona_id','=',1) 
             ->where('Estado_id','=',1)
             ->orderBy('id','asc')
             ->paginate(7);/*ese es el render*/
-            return view("partner.usuario.index",['persona'=>$persona,'searchText'=>$query]);
+            return view("administrador.partner.index",['persona'=>$persona,'searchText'=>$query]);
         }
     }
 
@@ -44,7 +45,7 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        return view("partner.usuario.create");
+        return view("administrador.partner.create");
     }
 
     /**
@@ -72,7 +73,7 @@ class PersonaController extends Controller
         $persona->Estado_id=$request->get('estado');
         $persona->tipo_persona_id=$request->get('tipo_per');
         $persona->save();
-        return Redirect::to('partner/usuario');
+        return Redirect::to('administrador/partner');
     }
 
     /**
@@ -84,7 +85,7 @@ class PersonaController extends Controller
     public function show($id)
     {
         //
-        return view("partner.usuario.show",["persona"=>persona::findOrFail($id)]);
+        return view("administrador.partner.show",["persona"=>persona::findOrFail($id)]);
     }
 
     /**
@@ -96,7 +97,7 @@ class PersonaController extends Controller
     public function edit($id)
     {
         //
-        return view("partner.usuario.edit",["persona"=>persona::findOrFail($id)]);
+        return view("administrador.partner.edit",["persona"=>persona::findOrFail($id)]);
     }
 
     /**
@@ -117,7 +118,7 @@ class PersonaController extends Controller
         $persona->num_docum=$request->get('num_doc');
         
         $persona->update();
-        return Redirect::to('partner/usuario');
+        return Redirect::to('administrador/partner');
     }
 
     /**
@@ -132,6 +133,6 @@ class PersonaController extends Controller
         $persona=Persona::findOrFail($id);
         $persona->Estado_id='2';
         $persona->update();
-        return Redirect::to('partner/usuario');
+        return Redirect::to('administrador/partner');
     }
 }

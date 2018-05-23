@@ -24,7 +24,7 @@ class PersonaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'num_docum'=>'required',
+            'num_doc'=>'required',
             'nombres',
             'ap_paterno',
             'ap_materno',
