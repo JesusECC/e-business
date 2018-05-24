@@ -17,12 +17,12 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>
-						<th>Id</th>
+						<th class="hidden-lg">Id</th>
 						<th>TIpo de Pago</th>
 					</thead>
 					@foreach ($tipopago as $td)
 					<tr>
-						<td>{{$td->id}}</td>
+						<td class="hidden-lg">{{$td->id}}</td>
 						<td>{{$td->nombre}}</td> 
 						<td>
 							<a href="{{route('tipopago.edit', $td->id)}}">
