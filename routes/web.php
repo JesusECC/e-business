@@ -23,6 +23,7 @@ Route::resource('administrador/usuario','UsuarioController');
 Route::resource('administrador/tipopago','TipoPagoController');
 Route::resource('administrador/tipopersona','TipoPersonaController');
 Route::resource('administrador/partner','PersonaController');
+Route::resource('administrador/estado','EstadoController');
 //Route::resource('','HomeController');
 Route::auth();
 //Auth::routes();

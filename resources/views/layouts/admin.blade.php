@@ -121,6 +121,7 @@
                 <li><a href="{{url('administrador/tipopersona')}}"><i class="fa fa-circle-o"></i> Tipo Persona</a></li>
                 <li><a href="{{url('administrador/comprobante')}}"><i class="fa fa-circle-o"></i> Comprobante</a></li>
                 <li><a href="{{url('administrador/tipopago')}}"><i class="fa fa-circle-o"></i> Tipo Pago</a></li>
+                <li><a href="{{url('administrador/estado')}}"><i class="fa fa-circle-o"></i> Estado</a></li>
               </ul>
             </li>
             <!--
