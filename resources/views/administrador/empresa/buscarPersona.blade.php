@@ -4,7 +4,10 @@
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>
 				Lista de Partner
+				<a href="{{url('administrador/partner')}}"> 
+				<button class="btn btn-info">Agregar</button></a>
 			</h3>
+			
 			@include('administrador.empresa.searchPersona')
 		</div>
 	</div>

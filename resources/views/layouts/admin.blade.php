@@ -104,7 +104,8 @@
               <ul class="treeview-menu">
                 <li><a href="{{url('partner/tipodocumento')}}"><i class="fa fa-circle-o"></i> Tipo de Documento</a></li>
                 <li><a href="{{url('partner/usuario')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a href="{{url('partner/clientes')}}"><i class="fa fa-circle-o"></i> Clietes</a></li>
+                <li><a href="{{url('partner/clientes')}}"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{{url('partner/evento')}}"><i class="fa fa-circle-o"></i> Evento</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -220,7 +221,7 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b>Version</b> 1.0
         </div>
         <strong>Copyright &copy; 2018 <a href="">SisBezaFest</a>.</strong>Todos los derechos Reservados.
       </footer>

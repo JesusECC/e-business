@@ -33,7 +33,7 @@
 						<td>{{$per->ap_paterno}}</td> 
 						<td>{{$per->ap_materno}}</td> 
 						<td>
-							<a href="{{route('usuario.edit', $per->id)}}"> 
+							<a href="{{route('clientes.edit', $per->id)}}"> 
 								<button class="btn btn-info">Editar</button></a>
 
 							<a href="" data-target="#modal-delete-{{$per->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>

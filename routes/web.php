@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('auth/login');
 });
 Auth::routes();
+//rutas del partner
 Route::resource('partner/usuario','PersonaController');
 Route::resource('partner/clientes','ClienteController');
+Route::resource('partner/evento','EventoController');
+
+//rutas del administrador
 Route::resource('administrador/tipodocumento','TipodocumentoController');
 Route::resource('administrador/comprobante','TipoComprobanteController');
 Route::resource('administrador/usuario','UsuarioController');
