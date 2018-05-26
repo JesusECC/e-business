@@ -79,7 +79,7 @@
 			<div class="form-group">
 				<label for="n_cuenta">ESTADO</label>
 				
-				<select name="estado" id="estado">
+				<select name="estado" id="estado" required >
 				@foreach ($estado as $es)
 					<option value="{{$es->id}}">{{$es->nombre}}</option>
 				@endforeach
