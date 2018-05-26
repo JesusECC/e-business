@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('auth/login');
 });
-
+Auth::routes();
 Route::resource('partner/usuario','PersonaController');
 Route::resource('partner/clientes','ClienteController');
 Route::resource('administrador/tipodocumento','TipodocumentoController');
@@ -23,10 +23,18 @@ Route::resource('administrador/usuario','UsuarioController');
 Route::resource('administrador/tipopago','TipoPagoController');
 Route::resource('administrador/tipopersona','TipoPersonaController');
 Route::resource('administrador/partner','PersonaController');
-//Route::resource('','HomeController');
-Route::auth();
-//Auth::routes();
+Route::resource('administrador/estado','EstadoController');
+Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarpersona');
+//Route::get('administrador/empresa/create/{id}/{no}/{dni}',function($id,$no,$dni){
+    //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni
+  //  return view("administrador.empresa.create",[$id]);
+//});
 
+Route::resource('administrador/empresa','EmpresaController');
+
+
+
+//Route::resource('','HomeController');
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/{str_slug($url)?}', 'HomeController@index');
 //Route::get('/home', 'AdminController@index')->name('welcome');

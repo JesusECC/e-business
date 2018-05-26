@@ -3,12 +3,12 @@
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>
-				Listado de Tipo de Pago
-				<a href="tipopago/create">
+				Lista de Estados 
+				<a href="estado/create">
 					<button class="btn btn-primary">Nuevo</button>
 				</a>
 			</h3>
-			@include('administrador.tipopago.search')
+			@include('administrador.estado.search')
 		</div>
 	</div>
 	<hr>
@@ -17,26 +17,27 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>
-						<th class="hidden-lg">Id</th>
-						<th>TIpo de Pago</th>
+						
+						<th class="hidden-lg" >id</th>
+						<th>Nombre</th>
 					</thead>
-					@foreach ($tipopago as $td)
+					@foreach ($estado as $per)
 					<tr>
-						<td class="hidden-lg">{{$td->id}}</td>
-						<td>{{$td->nombre}}</td> 
+						<td class="hidden-lg">{{$per->id}}</td>
+						<td>{{$per->nombre}}</td> 
 						<td>
-							<a href="{{route('tipopago.edit', $td->id)}}">
+							<a href="{{route('estado.edit', $per->id)}}"> 
 								<button class="btn btn-info">Editar</button></a>
 
-							<a href="" data-target="#modal-delete-{{$td->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+							<a href="" data-target="#modal-delete-{{$per->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 						</td>
 					</tr>
-					@include('administrador.tipopago.modal')
+					@include('administrador.estado.modal')
 					@endforeach
 				</table>
 			</div>
 			<!--para la paginacion-->
-			{{$tipopago->render()}}
+			{{$estado->render()}}
 		</div>
 	</div>
 @endsection
