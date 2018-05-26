@@ -50,16 +50,14 @@
 				<label for="num_doc">Numero Documento</label>
 				<input type="text" name="num_doc" required value="{{$persona->num_docum}}" class="form-control" placeholder="Numero de docuemto..">
 			</div>			
-		</div>
-		
-		
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		</div>		
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<button class="btn btn-success" type="submit" >Guardar</button>
 				<button class="btn btn-danger"  type="reset" > Cancelar</button>
                 <button class="btn btn-primary"  ><a style="text-decoration:none;color:white" href="{{route('usuario.index')}}"> Retornar</a></button>
 			</div>			
 		</div>
-	</div>
 	{{Form::Close()}}			
 @endsection
