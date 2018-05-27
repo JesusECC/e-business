@@ -1,9 +1,12 @@
 <?php
 
 namespace SisBezaFest\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use SisBezaFest\Evento;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use SisBezaFest\Http\Requests\EventoFormRequest;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        return view("home",['paquete'=>$paquete]);
     }
 }
