@@ -70,7 +70,7 @@ class ClienteController extends Controller
         $persona->correo=$request->get('gmail');
         $persona->fech_nacimiento=$request->get('fnaci');
         $persona->edad=$request->get('edad');
-        $persona->Estado_id=$request->get('estado');
+        $persona->Estado_id='1';
         $persona->tipo_persona_id=$request->get('tipo_per');
         $persona->save();
         return Redirect::to('partner/clientes');
