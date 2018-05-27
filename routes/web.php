@@ -35,7 +35,6 @@ Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarperson
     //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni
   //  return view("administrador.empresa.create",[$id]);
 //});
-Route::get('/index1','HomeController@index1');
 Route::resource('administrador/empresa','EmpresaController');
 
 
