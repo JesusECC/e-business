@@ -106,6 +106,8 @@
                 <li><a href="{{url('partner/usuario')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 <li><a href="{{url('partner/clientes')}}"><i class="fa fa-circle-o"></i> Clientes</a></li>
                 <li><a href="{{url('partner/evento')}}"><i class="fa fa-circle-o"></i> Evento</a></li>
+                <li><a href="{{url('partner/paquete')}}"><i class="fa fa-circle-o"></i> Paquete</a></li>
+                <li><a href="{{url('partner/tipopaquete')}}"><i class="fa fa-circle-o"></i> Tipo Paquete</a></li>
               </ul>
             </li>
             <li class="treeview">

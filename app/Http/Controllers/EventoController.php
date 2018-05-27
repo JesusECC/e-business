@@ -64,8 +64,8 @@ class EventoController extends Controller
         $evento->hora=$request->get('hora');
         $evento->direccion=$request->get('direccion');
         $evento->aforo=$request->get('aforo');
-        $evento->tipo_evento='tipo_evento';
-        $evento->descripcion='descripcion';
+        $evento->tipo_evento=$request->get('tipo_evento');
+        $evento->descripcion=$request->get('descripcion');
         if (Input::hasFile('imagen')){
          $file=Input::file('imagen');
          $file->move(public_path().'/images/eventos/',$file->getClientOriginalName());
