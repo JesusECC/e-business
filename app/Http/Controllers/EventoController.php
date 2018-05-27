@@ -98,6 +98,7 @@ class EventoController extends Controller
     public function edit($id)
     {
         //
+        return view("partner.evento.edit",["evento"=>Evento::findOrFail($id)]);
     }
 
     /**
@@ -110,6 +111,26 @@ class EventoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $evento=new Evento;
+        $evento->id=$request->get('id');
+        $evento->nombre=$request->get('nombre');
+        $evento->fecha_creacion=$request->get('fecha_creacion');
+        $evento->fecha=$request->get('fecha');
+        $evento->hora=$request->get('hora');
+        $evento->direccion='direccion';
+        $evento->aforo='aforo';
+        $evento->tipo_evento='tipo_evento';
+        $evento->descripcion='descripcion';
+        
+        if (Input::hasFile('imagen')){
+         $file=Input::file('imagen');
+         $file->move(public_path().'/imagenes/eventos/',$file->getClientOriginalName());
+            $eventos->imagen=$file->getClientOriginalName();
+        }
+        $evento->Estado_id=$request->get('Estado_id');
+        $evento->empresa_id=$request->get('empresa_id');
+        $persona->update();
+        return Redirect::to('partner/evento');
     }
 
     /**
@@ -121,5 +142,9 @@ class EventoController extends Controller
     public function destroy($id)
     {
         //
+        $estado=Estado::findOrFail($id);
+        $persona->Estado_id='2';
+        $estado -> update(); 
+        return Redirect::to('partner/estado');
     }
 }
