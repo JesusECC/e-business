@@ -23,8 +23,6 @@
 						<th>Fecha de Evento</th>
 						<th>Hora de Evento</th>
 						<th>Aforo de Evento</th>
-						<th>Decsripción</th>
-						<th>Imagen</th>
 						<th>Estado</th>
 						<th>Empresa</th>
 						<th>Opciones</th>
@@ -34,16 +32,12 @@
 					<tr>
 						<td class="hidden-lg">{{$eve->id}}</td>
 						<td>{{$eve->nombre}}</td> 
-						<td>{{$eve->fecha-creación}}</td> 
+						<td>{{$eve->fecha_creacion}}</td> 
 						<td>{{$eve->fecha}}</td> 
 						<td>{{$eve->hora}}</td> 
 						<td>{{$eve->aforo}}</td> 
-						<td>{{$eve->descripción}}</td>
-						<td>
-							<img src="{{asset('imagenes/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="image-thumbnail" height="200px" width="200px">
-						</td>
-						<td>{{$eve->Estado_id}}</td>
-						<td>{{$eve->empresa_id}}</td>
+						<td>{{$eve->estado}}</td>
+						<td>{{$eve->empresa}}</td>
 						<td>
 							<a href="{{route('evento.edit', $eve->id)}}"> 
 								<button class="btn btn-info">Editar</button></a>
@@ -52,7 +46,7 @@
 								<button class="btn btn-danger">Eliminar</button>
 							</a>
 							<a href="" data-target="#modal-vista-{{$eve->id}}" data-toggle="modal">
-								<button class="btn btn-primary">Ver Evento</button>
+								<button class="btn btn-primary">Ver Flyer</button>
 							</a>
 						</td>
 					</tr>

@@ -15,7 +15,7 @@ class Evento extends Model
      //campos que reciben un valor para despues ser almacenados//
      protected $fillable=[
          'nombre',
-         'fecha-creacion',
+         'fecha_creacion',
          'fecha',
          'hora',
          'direccion',
