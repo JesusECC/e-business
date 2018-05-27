@@ -17,7 +17,7 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>
-						
+						<th class="hidden-lg">Id</th>
 						<th>Nombre de Evento</th>
 						<th>Fecha de Creación</th>
 						<th>Fecha de Evento</th>
@@ -30,32 +30,39 @@
 						<th>Opciones</th>
 
 					</thead>
-					@foreach ($persona as $per)
+					@foreach ($eventos as $eve)
 					<tr>
-						<td class="hidden-lg">{{$per->id}}</td>
-						<td>{{$per->num_docum}}</td> 
-						<td>{{$per->nombres}}</td> 
-						<td>{{$per->ap_paterno}}</td> 
-						<td>{{$per->ap_materno}}</td> 
+						<td class="hidden-lg">{{$eve->id}}</td>
+						<td>{{$eve->nombre}}</td> 
+						<td>{{$eve->fecha-creación}}</td> 
+						<td>{{$eve->fecha}}</td> 
+						<td>{{$eve->hora}}</td> 
+						<td>{{$eve->aforo}}</td> 
+						<td>{{$eve->descripción}}</td>
 						<td>
-							<a href="{{route('clientes.edit', $per->id)}}"> 
+							<img src="{{asset('imagenes/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="image-thumbnail" height="100px" width="100px">
+						</td>
+						<td>{{$eve->Estado_id}}</td>
+						<td>{{$eve->empresa_id}}</td>
+						<td>
+							<a href="{{route('evento.edit', $eve->id)}}"> 
 								<button class="btn btn-info">Editar</button></a>
 
-							<a href="" data-target="#modal-delete-{{$per->id}}" data-toggle="modal">
+							<a href="" data-target="#modal-delete-{{$eve->id}}" data-toggle="modal">
 								<button class="btn btn-danger">Eliminar</button>
 							</a>
-							<a href="" data-target="#modal-vista-{{$per->id}}" data-toggle="modal">
+							<a href="" data-target="#modal-vista-{{$eve->id}}" data-toggle="modal">
 								<button class="btn btn-primary">Ver Evento</button>
 							</a>
 						</td>
 					</tr>
-					@include('partner.usuario.modal')
-					@include('partner.usuario.modal-imagen')
+					@include('partner.evento.modal')
+					@include('partner.evento.modal-imagen')
 					@endforeach
 				</table>
 			</div>
 			<!--para la paginacion-->
-			{{$persona->render()}}
+			{{$evento->render()}}
 		</div>
 	</div>
 @endsection
