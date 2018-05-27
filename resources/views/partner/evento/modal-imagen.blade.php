@@ -1,1 +1,0 @@
-modal-imagen.blade.php

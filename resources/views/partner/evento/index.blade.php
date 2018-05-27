@@ -30,7 +30,7 @@
 						<th>Opciones</th>
 
 					</thead>
-					@foreach ($eventos as $eve)
+					@foreach ($evento as $eve)
 					<tr>
 						<td class="hidden-lg">{{$eve->id}}</td>
 						<td>{{$eve->nombre}}</td> 
@@ -40,7 +40,7 @@
 						<td>{{$eve->aforo}}</td> 
 						<td>{{$eve->descripción}}</td>
 						<td>
-							<img src="{{asset('imagenes/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="image-thumbnail" height="100px" width="100px">
+							<img src="{{asset('imagenes/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="image-thumbnail" height="200px" width="200px">
 						</td>
 						<td>{{$eve->Estado_id}}</td>
 						<td>{{$eve->empresa_id}}</td>
@@ -59,7 +59,9 @@
 					@include('partner.evento.modal')
 					@include('partner.evento.modal-imagen')
 					@endforeach
+					
 				</table>
+				
 			</div>
 			<!--para la paginacion-->
 			{{$evento->render()}}
