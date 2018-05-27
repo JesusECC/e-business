@@ -27,7 +27,7 @@ class EventoController extends Controller
             //filtro de busqueda
             $query=trim($request->get('searchText'));
             //sentencia sql en laravel donde where necesita 3 parametros 
-            $estado=DB::table('evento')
+            $evento=DB::table('evento')
             ->where('nombre','LIKE','%'.$query.'%')
             ->orderBy('id','asc')
             ->paginate(7);
