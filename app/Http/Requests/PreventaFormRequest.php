@@ -24,7 +24,7 @@ class PreventaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
         ];
     }
 }

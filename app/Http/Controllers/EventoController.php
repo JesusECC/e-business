@@ -73,7 +73,7 @@ class EventoController extends Controller
         }
         $evento->Estado_id=1;
         $evento->empresa_id=$request->get('empresa_id');
-        $articulo->save();
+        $evento->save();
         return Redirect::to('partner/evento');
     }
 

@@ -73,7 +73,7 @@ class PaqueteController extends Controller
         $paquete->precio=$request->get('precio');
         $paquete->cantidad=$request->get('cantidad');
         $paquete->nr_personas=$request->get('nr_personas');
-        $paquete->estado='Activo';
+        $paquete->estado=1;
         $paquete->save();
         return Redirect::to('partner/paquete');        
     }

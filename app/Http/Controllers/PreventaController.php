@@ -3,6 +3,11 @@
 namespace SisBezaFest\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SisBezaFest\Preventa;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use SisBezaFest\Http\Requests\PreventaFormRequest;
+use DB;
 
 class PreventaController extends Controller
 {
@@ -11,9 +16,24 @@ class PreventaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request)
+        {   
+            //busquedas por articulo el trim para quitar los espacios tanto como al principio y al final
+            //filtro de busqueda
+            $query=trim($request->get('searchText'));
+            //sentencia sql en laravel donde where necesita 3 parametros 
+            $preventas=DB::table('preventas as p')
+            ->join('estado as e','p.Estado_id','=','e.id')
+            ->join('paquete as pa','p.paquete_id','=','pa.id')
+            ->select('p.codigo','p.paquete_id','p.nombre','p.porcentaje','p.fecha_inicio','p.fecha_fin','e.nombre as estado','pa.nombre as paquete','p.id')
+            ->where('p.nombre','LIKE','%'.$query.'%')
+            ->where('p.Estado_id','=',1)
+            ->orderBy('p.id','asc')
+            ->paginate(7);
+            return view("partner.preventa.index",['preventas'=>$preventas,'searchText'=>$query]);
+        }  
     }
 
     /**
@@ -23,7 +43,8 @@ class PreventaController extends Controller
      */
     public function create()
     {
-        //
+        $paquete=DB::table('paquete')->where('estado','=','Activo')->get();
+        return view("partner.preventa.create",["paquete"=>$paquete]);
     }
 
     /**
@@ -32,9 +53,18 @@ class PreventaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PreventaFormRequest $request)
     {
-        //
+        $preventas=new Preventa;
+        $preventas->paquete_id=$request->get('paquete_id');
+        $preventas->codigo=$request->get('codigo');
+        $preventas->nombre=$request->get('nombre');
+        $preventas->porcentaje=$request->get('porcentaje');
+        $preventas->fecha_inicio=$request->get('fecha_inicio');
+        $preventas->fecha_fin=$request->get('fecha_fin');
+        $preventas->Estado_id=1;
+        $preventas->save();
+        return Redirect::to('partner/preventa');
     }
 
     /**
@@ -45,7 +75,7 @@ class PreventaController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("partner.preventa.show",["preventas"=>Evento::findOrFail($id)]);
     }
 
     /**
@@ -56,7 +86,9 @@ class PreventaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $preventas=Preventa::findOrFail($id);
+        $paquete=DB::table('paquete')->where('estado','=','Activo')->get();
+        return view("partner.preventa.edit",["preventas"=>$preventas,"paquete"=>$paquete]); 
     }
 
     /**
@@ -66,9 +98,17 @@ class PreventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PreventaFormRequest $request, $id)
     {
-        //
+        $preventas=Preventa::findOrFail($id);
+        $preventas->paquete_id=$request->get('paquete_id');
+        $preventas->codigo=$request->get('codigo');
+        $preventas->nombre=$request->get('nombre');
+        $preventas->porcentaje=$request->get('porcentaje');
+        $preventas->fecha_inicio=$request->get('fecha_inicio');
+        $preventas->fecha_fin=$request->get('fecha_fin');
+        $preventas->update();
+        return Redirect::to('partner/preventa');
     }
 
     /**
@@ -79,6 +119,9 @@ class PreventaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $preventas=Preventa::findOrFail($id);
+        $preventas->Estado_id=0;
+        $preventas-> update(); 
+        return Redirect::to('partner/preventa');
     }
 }
