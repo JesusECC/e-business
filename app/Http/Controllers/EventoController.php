@@ -27,11 +27,11 @@ class EventoController extends Controller
             //filtro de busqueda
             $query=trim($request->get('searchText'));
             //sentencia sql en laravel donde where necesita 3 parametros 
-            $estado=DB::table('estado')
+            $estado=DB::table('evento')
             ->where('nombre','LIKE','%'.$query.'%')
             ->orderBy('id','asc')
             ->paginate(7);
-            return view("administrador.estado.index",['estado'=>$estado,'searchText'=>$query]);
+            return view("administrador.evento.index");
         }
     }
 
@@ -42,7 +42,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view("administrador.estado.create");
+        return view("administrador.evento.create");
     }
 
     /**
