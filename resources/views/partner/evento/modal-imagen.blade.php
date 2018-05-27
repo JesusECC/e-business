@@ -8,20 +8,20 @@
 		</div>
 		<div class="modal-body">
 			<center>
-				<img src="{{asset('images/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}"  height="300px" width="500px">
+				<img src="{{asset('images/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="img-responsive" height="300px" width="500px">
 			</center>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
+			
+				
+					
 						<h3>
 							Descripción del evento {{$eve->nombre}}
 						</h3>
 						<p>
 							{{$eve->descripcion}}
 						</p>
-					</div>
-				</div>
-			</div>
+					
+				
+			
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">
