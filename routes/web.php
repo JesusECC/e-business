@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'MainController@index');
-Auth::routes();
+Route::get('/Administrador', function () {
+    return view('auth/login');
+});
 //rutas del partner
 Route::resource('partner/usuario','PersonaController');
 Route::resource('partner/clientes','ClienteController');
@@ -36,8 +38,8 @@ Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarperson
 //});
 Route::resource('administrador/empresa','EmpresaController');
 
-
+Auth::routes();
 //Route::resource('','HomeController');
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/{str_slug($url)?}', 'HomeController@index');
 //Route::get('/home', 'AdminController@index')->name('welcome');
