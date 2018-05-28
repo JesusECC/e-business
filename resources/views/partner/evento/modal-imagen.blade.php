@@ -11,8 +11,7 @@
 				<img src="{{asset('images/eventos/'.$eve->imagen)}}" alt="{{$eve->nombre}}" class="img-responsive" height="300px" width="500px">
 			</center>
 			
-				
-					
+			
 						<h3>
 							Descripción del evento {{$eve->nombre}}
 						</h3>

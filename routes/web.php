@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+Route::get('/', 'MainController@index');
 Auth::routes();
 //rutas del partner
 Route::resource('partner/usuario','PersonaController');
@@ -39,8 +37,7 @@ Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarperson
 Route::resource('administrador/empresa','EmpresaController');
 
 
-
 //Route::resource('','HomeController');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 //Route::get('/{str_slug($url)?}', 'HomeController@index');
 //Route::get('/home', 'AdminController@index')->name('welcome');
