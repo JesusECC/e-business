@@ -30,7 +30,8 @@ Route::resource('administrador/tipopago','TipoPagoController');
 Route::resource('administrador/tipopersona','TipoPersonaController');
 Route::resource('administrador/partner','PersonaController');
 Route::resource('administrador/estado','EstadoController');
-
+Route::get('main','MainController@paquete');
+Route::get('main/paquete/{id}','MainController@paquete');
 Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarpersona');
 //Route::get('administrador/empresa/create/{id}/{no}/{dni}',function($id,$no,$dni){
     //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni

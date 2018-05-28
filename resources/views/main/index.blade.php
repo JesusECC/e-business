@@ -13,7 +13,6 @@
      	@foreach ($evento as $eve)
      	<div class="wrap">
      		<div class="section group">
-     			
 				<div class="col_1_of_3 span_1_of_3">
 					<img src="{{asset('images/eventos/'.$eve->imagen)}}" alt=""/>
 					<ul class="m_fb">
@@ -28,11 +27,11 @@
 					  <div class="desc">
 						<h3><a href="#">{{$eve->nombre}}</a></h3>
 						<h4 class="m_2">Fecha :{{$eve->fecha}} - Hora: {{$eve->hora}}</h4>
-						<h5 class="m_3">{{$eve->descripcion}}</p>
+						<h5 class="m_3"><p></p>{{$eve->descripcion}}</p></h5>
 					   </div>
 					   <div class="section group example">
 						<center >
-							<div class="get_btn1"><a href="">Ver paquetes</a></div>
+							<div class="get_btn1"><a href="{{url('main/paquete',$eve->id)}}">Ver paquetes</a></div>
 						</center>
 						
 						<div class="clear"></div>
@@ -40,6 +39,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
+
 		</div>
 		@endforeach
      </div>

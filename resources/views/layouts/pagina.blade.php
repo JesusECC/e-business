@@ -10,6 +10,8 @@
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+
 <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 
 <link href="{{asset('css/calendar-eightysix-default.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -103,5 +105,11 @@
      	  </div>
        </div>
      </div>
+         <!-- jQuery 2.1.4 -->
+    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('js/app.min.js')}}"></script>
 </body>
 </html>

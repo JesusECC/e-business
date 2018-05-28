@@ -4,6 +4,7 @@ namespace SisBezaFest\Http\Controllers;
 
 use Illuminate\Http\Request;
 use SisBezaFest\Evento;
+use SisBezaFest\Paquete;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use SisBezaFest\Http\Requests\EventoFormRequest;
@@ -33,6 +34,16 @@ class MainController extends Controller
             ->paginate(7);
             return view("main.index",['evento'=>$evento,'searchText'=>$query]);
         }
+    }
+    public function paquete($id)
+    {
+            $paquete=DB::table('paquete as p')
+            ->join('evento as e','p.evento_id','=','e.id')
+            ->select('p.id','p.nombre as nombre','p.imagen','p.descripcion','p.precio','p.cantidad','p.nr_personas','e.nombre as evento','p.estado')
+            ->where('p.evento_id','=',$id)
+            ->orderBy('p.id','asc')
+            ->paginate(7);
+            return view("main.paquete",["paquete"=>$paquete]);
     }
 
     /**
