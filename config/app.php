@@ -148,6 +148,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
+        
+
         /*
          * Package Service Providers...
          */
@@ -160,7 +162,7 @@ return [
         // SisBezaFest\Providers\BroadcastServiceProvider::class,
         SisBezaFest\Providers\EventServiceProvider::class,
         SisBezaFest\Providers\RouteServiceProvider::class,
-
+        SisBezaFest\Providers\ShoppingCartProvider::class,
     ],
 
     /*

@@ -55,6 +55,14 @@
 					<a href="work.html"><span>Nosotros</span>
 					</a>
 				</li>
+				<li>
+					<a href="work.html"> 
+					Mi Carrito
+					<span>
+					{{$shopping_cart->products_size()}}
+					</span>
+					</a>
+				</li>
 				<div class="clear"></div>
 			</ul>
 		    </nav>
@@ -66,7 +74,9 @@
 				<div class="get_btn">
 					<a href="login.html">Login / Salir</a>
 				</div>
+				
 				<div class="clear"></div>
+		   </div>
 		   </div>
 	     <div class="clear"></div>
 		<h2 class="head">Encuentra el <span class="m_1">próximo evento. </span>Querrás  <span class="m_1">asistir</span></h2>

@@ -5,6 +5,7 @@ namespace SisBezaFest\Http\Controllers;
 use Illuminate\Http\Request;
 use SisBezaFest\Evento;
 use SisBezaFest\Paquete;
+use SisBezaFest\ShoppingCart;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use SisBezaFest\Http\Requests\EventoFormRequest;
@@ -19,6 +20,12 @@ class MainController extends Controller
      */
     public function index(Request $request)
     {
+        $shopping_cart_id= \Session::get('shopping_cart_id');
+        $shopping_cart=ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
+        \Session::put("shopping_cart_id",$shopping_cart->id);
+
+
+
         if ($request) {
             //busquedas por categoria el trim para quitar los espacios tanto como al principio y al final
             //filtro de busqueda
@@ -32,7 +39,7 @@ class MainController extends Controller
             ->where('e.Estado_id','=',1)
             ->orderBy('e.id','asc')
             ->paginate(7);
-            return view("main.index",['evento'=>$evento,'searchText'=>$query]);
+            return view("main.index",['evento'=>$evento,'searchText'=>$query,"shopping_cart"=>$shopping_cart]);
         }
     }
     public function paquete($id)
