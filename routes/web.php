@@ -37,6 +37,11 @@ Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarperson
     //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni
   //  return view("administrador.empresa.create",[$id]);
 //});
+//rutas carrito de compras
+Route::get('main/shoppincar', 'ShoppingCartsController@index');
+Route::get('main/shoppincar/{idprod}', 'InShoppingCartsController@strore');
+
+
 Route::resource('administrador/empresa','EmpresaController');
 
 Auth::routes();

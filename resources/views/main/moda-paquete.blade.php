@@ -4,7 +4,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span  aria-hidden="true">x</span>
 			</button>
-			<h4 class="modal-title"> Paquete {{$p->nombre}}</h4>
+			<h4 class="modal-title"> Paquetea {{$p->nombre}}</h4>
 		</div>
 		<div class="modal-body">
 			<center>
@@ -17,6 +17,12 @@
 						</h3>
 						<p>
 							{{$p->descripcion}}
+						</p>
+						<p>
+							{{$p->precio}}
+						</p>
+						<p>
+							{{$p->nr_personas}}
 						</p>
 		</div>
 		<div class="modal-footer">

@@ -56,7 +56,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="work.html"> 
+					<a href="{{url('main/shoppincar')}}"> 
 					Mi Carrito
 					<span>
 					{{$shopping_cart->products_size()}}

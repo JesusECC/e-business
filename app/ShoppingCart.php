@@ -7,11 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class ShoppingCart extends Model
 {
     //
-    protected $fillable=["status"];
+    protected $fillable=['status'];
+
+    public function inShoppingCarts(){
+        return $this->hasMany('SisBezaFest\InShoppingCart');
+    }
+    public function paquete(){
+        return $this->belongsToMany('SisBezaFest\Paquete','in_shopping_carts');
+    }
 
     public function products_size(){
-        return $this->id;
+        return $this->paquete()->count();
     }
+
+    public function total(){
+        return $this->paquete()->sum('precio');
+    }
+    
     public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id)
             //buscar el carrito de compras con este id
