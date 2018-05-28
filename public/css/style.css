@@ -41,7 +41,7 @@ body{
 	-ms-transition:all .2s linear;
 }
 .header-top{
-	background:#333;
+	background: url("/images/background3.jpg");
 	padding: 2% 0;
 }
 .logo{
@@ -545,7 +545,7 @@ span.m_3{
 }
 /*--footer--*/
 .footer{
-	background:#333;
+	background: url("/images/background3.jpg");
 	padding:2% 0;
 }
 .footer-menu{
@@ -1023,15 +1023,15 @@ h4.m_5{
 	line-height:1.5em;
 }
 .get_btn1{
-	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .get_btn1 a {
 	display: inline-block;
-	font-size: 0.7em;
+	font-size: 1em;
 	color: #FFF;
-	background:#555;
+	background:#FE2232;
 	border: none;
-	padding:6px 10px;
+	padding:15px 20px;
 	text-transform: uppercase;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
