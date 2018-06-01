@@ -30,8 +30,9 @@ Route::resource('administrador/tipopago','TipoPagoController');
 Route::resource('administrador/tipopersona','TipoPersonaController');
 Route::resource('administrador/partner','PersonaController');
 Route::resource('administrador/estado','EstadoController');
-Route::get('main','MainController@paquete');
+//index del cliente
 Route::get('main/paquete/{id}','MainController@paquete');
+Route::get('main','MainController@paquete');
 Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarpersona');
 //Route::get('administrador/empresa/create/{id}/{no}/{dni}',function($id,$no,$dni){
     //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni
@@ -39,7 +40,7 @@ Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarperson
 //});
 //rutas carrito de compras
 Route::get('main/shoppincar', 'ShoppingCartsController@index');
-Route::get('main/shoppincar/{idprod}', 'InShoppingCartsController@strore');
+Route::get('main/shoppincar/{id}', 'InShoppingCartsController@strore')->name('shopping');
 
 
 Route::resource('administrador/empresa','EmpresaController');

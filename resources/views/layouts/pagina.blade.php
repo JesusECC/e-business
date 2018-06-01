@@ -46,7 +46,7 @@
 			<a href="#" title="Ocultar Menu">Ocultar Menu</a>
 			<ul class="clearfix">
 				<li class="active">
-					<a href="index.html">Agendas</a></li>
+					<a href="{{url('/')}}">Agendas</a></li>
 				<li>
 					<a href="start.html"><span>Fotos</span>
 					</a>

@@ -25,11 +25,13 @@ class InShoppingCartsController extends Controller
         $shopping_cart_id= \Session::get('shopping_cart_id');
         $shopping_cart=ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
         InShoppingCart::create([
-            "shopping_cart_id"=>$shopping_cart->id,
-            "paquete_id"=>$idprod
-            ]);
+         "shopping_cart_id"=>$shopping_cart->id,
+         "paquete_id"=>$idprod
+         ]);
+         $paquete=$shopping_cart->paquete()->get();
 
-        return view("main.shoppincar");
+         $total=$shopping_cart->total();
+         return view("main.shoppincar",['paquete'=>$paquete,'total'=>$total]); 
     }
 
 

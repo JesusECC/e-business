@@ -11,7 +11,7 @@
 		   <div class="section group">
 		   	@foreach ($paquete as $p)
 				
-		   	   <div class="col_1_of_3 span_1_of_3">
+		   	   <div class=" cart col_1_of_3 span_1_of_3">
 				   <div class="container1 right">
 						<img src="{{asset('images/paquete/'.$p->imagen)}}">
 						<article class="text css3-4">
@@ -35,20 +35,26 @@
 										<h3>
 											Descripción del evento {{$p->nombreEv}}
 										</h3>
-										<p>
-											Precio: S/.{{$p->precio}}
-										</p>
-										<p>
-											Capacidad: {{$p->nr_personas}}
-										</p>
-										<p>
-											Lugar: {{$p->nom_paquete}}
-										</p>
-										<p>
-											Categoria: {{$p->nombrePa}}
-										</p>
-										
+							<table class="table table-hover">
+								<thead>
+									<tr>
+									<th scope="col">Precio</th>
+									<th scope="col">Capacidad</th>
+									<th scope="col">Lugar</th>
+									<th scope="col">Categoria</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+									<th scope="row">S/.{{$p->precio}}</th>
+									<td>{{$p->nr_personas}}</td>
+									<td>{{$p->nom_paquete}}</td>
+									<td>{{$p->nombrePa}}</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
+						
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cerrar

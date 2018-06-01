@@ -32,4 +32,14 @@ class Evento extends Model
      protected $guarded = [
  
      ];
+
+
+
+     public function paypalYtem(){
+         return \PaypalPayment::item()->setName($this->nombre)
+                                      ->setDescription($this->descrption)
+                                      ->setCurrency('USD')
+                                      ->setQuantity(1)
+                                      ->setPrice($this->princeng);
+     }
 }
