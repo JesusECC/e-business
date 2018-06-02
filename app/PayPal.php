@@ -4,11 +4,12 @@ namespace SisBezaFest;
 Class PayPal
 {
     private $_apiContext;
-    private $shopping_cart;
-    private $_ClienteId='';
-    private $_ClientSecret='\';
+    private $paquete;
+    private $total;
+    private $_ClienteId='AbADZXbkx24TyO0DjabqNuS4amC6C8R7iK2xMY31CCZVeOP9GIDquwhRAUJKDyTht-ppcjuygvzPsoDO';
+    private $_ClientSecret='EPKkFlWsZrjYLqVUmTwcXXdHoK-DRArasWowrXNUZs8-83ixjaT3E3CzUqfDC7YL0xIshkoutAFc0eMR';
 
-    public function _construct($shopping_cart1){
+    public function _construct($paquete,$total){
 
         $this->_apiContext= \PaypalPayment::ApiContext($this->_ClientId,$this->_ClientSecret);
 
@@ -17,7 +18,9 @@ Class PayPal
 
         $this->_apiContext->setConfig($flatConfig);
 
-        $this->shopping_cart=$shopping_cart1;
+        $this->paquete=$paquete;
+        $this->total=$total;
+        return dd($shopping_cart->all());
     }
 
     public function generate(){
@@ -45,21 +48,20 @@ Class PayPal
                 ->setInvoiceNumber(uniqid());
     }
    
-    public function RedirectUrls(){
+    public function RedirectUrl(){
         //retorna la transaccion
         $baseURL=url('url');
-        return \PaypalPayment::redirectUrls()
+        return \PaypalPayment::redirectUrl()
                     ->setReturnUrl("$baseURL/payements/store")
                     ->setCancelUrl("$baseURL/shoppincar");
     }
 
     public function items(){
         $items=[];
-        $paquete = $this->shopping_cart->paquete()->get();
         
-        foreach ($paquete as $paquete2) {
-            array_push($items,$paquete2->paypalItem());
-        }
+        //foreach($paquete as $p) {
+      //      array_push($items,$p->paypalItem());
+       // }
         return \paypalPayment::itemList()->setItems($items);
      }
 

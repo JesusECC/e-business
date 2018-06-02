@@ -14,6 +14,8 @@
 
 <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 <link href="{{asset('css/calendar-eightysix-default.css')}}" rel="stylesheet" type="text/css" media="all" />
 
 <link href="{{asset('css/calendar-eightysix-osx-dashboard.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -56,7 +58,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{url('main/shoppincar')}}"> 
+					<a href="{{route('cart-show')}}"> 
 					Mi Carrito
 					<span>
 					{{$shopping_cart->products_size()}}
@@ -121,5 +123,7 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+	<!-- funcion de js -->
+	<script src="{{asset('js/funcion.js')}}"></script>
 </body>
 </html>

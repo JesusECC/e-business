@@ -59,7 +59,7 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">
 								Cerrar
 							</button>
-							<a href="{{url('main/shoppincar',$p->id)}}" class="btn btn-default">Agregar</a>
+							<a href="{{route('cart-add',$p->id)}}" class="btn btn-default">Agregar</a>
 								
 
 						</div>

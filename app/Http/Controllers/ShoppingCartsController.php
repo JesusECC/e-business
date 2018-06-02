@@ -14,13 +14,13 @@ class ShoppingCartsController extends Controller
         $shopping_cart=ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 
 
-        //$paypal=new PayPal($shopping_cart);
-       // $paypal->generate();
-        //return "";
-        $paquete=$shopping_cart->paquete()->get();
+        $paypal=new PayPal($shopping_cart->paquete()->get(),$shopping_cart->total());
+        $paypal->generate();
+        return '';
+        //$paquete=$shopping_cart->paquete()->get();
 
-        $total=$shopping_cart->total();
-        return view("main.shoppincar",['paquete'=>$paquete,'total'=>$total]); 
+       // $total=$shopping_cart->total();
+       // return view("main.shoppincar",['paquete'=>$paquete,'total'=>$total]); 
     }
     public function strore(Request $request)
     {

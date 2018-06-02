@@ -15,6 +15,12 @@ Route::get('/', 'MainController@index');
 Route::get('/Administrador', function () {
     return view('auth/login');
 });
+// rutas para los eventos\
+
+Route::bind('evento', function($id){
+ return SisBezaFest\Paquete::where('id', $id)->first(); 
+});
+
 //rutas del partner
 Route::resource('partner/usuario','PersonaController');
 Route::resource('partner/clientes','ClienteController');
@@ -34,10 +40,6 @@ Route::resource('administrador/estado','EstadoController');
 Route::get('main/paquete/{id}','MainController@paquete');
 Route::get('main','MainController@paquete');
 Route::get('administrador/empresa/buscarPersona','EmpresaController@buscarpersona');
-//Route::get('administrador/empresa/create/{id}/{no}/{dni}',function($id,$no,$dni){
-    //$per=>['id'=>$id,'no'=>$no,'dni'=>$dni
-  //  return view("administrador.empresa.create",[$id]);
-//});
 //rutas carrito de compras
 Route::get('main/shoppincar', 'ShoppingCartsController@index');
 Route::get('main/shoppincar/{id}', 'InShoppingCartsController@strore')->name('shopping');
@@ -50,3 +52,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/{str_slug($url)?}', 'HomeController@index');
 //Route::get('/home', 'AdminController@index')->name('welcome');
+
+//carrito
+Route::get('main/cart',['as' => 'cart-show','uses'=>'CartController@show']);
+Route::get('main/add/{evento}',['as' => 'cart-add','uses'=>'CartController@add']);
+Route::get('main/delete/{evento}',['as' => 'cart-delete','uses'=>'CartController@delete']);
+Route::get('main/trash',['as' => 'cart-trash','uses'=>'CartController@trash']);
+Route::get('main/update/{id}/{canti?}',['as' => 'cart-update','uses'=>'CartController@update']);
+// Enviamos nuestro pedido a PayPal
+Route::get('payment', array(
+	'as' => 'payment',
+	'uses' => 'PaypalController@postPayment',
+));
+
+// Después de realizar el pago Paypal redirecciona a esta ruta
+Route::get('payment/status', array(
+	'as' => 'payment.status',
+	'uses' => 'PaypalController@getPaymentStatus',
+));
