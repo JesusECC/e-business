@@ -13,7 +13,9 @@ class CartController extends Controller
 
     public function show(){
         $cart= \Session::get('cart');
-        $total=$this->total();
+        if (isset($cart)) {
+            $total=$this->total();
+        }        
         return  view('main.cart',compact('cart','total'));
     }
 

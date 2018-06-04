@@ -59,10 +59,10 @@
 				</li>
 				<li>
 					<a href="{{route('cart-show')}}"> 
-					Mi Carrito
-					<span>
-					{{$shopping_cart->products_size()}}
-					</span>
+					<i class="fa fa-shopping-cart"></i>
+					<span>@if(isset($cart))
+					{{count($cart)}}
+					@endif</span>
 					</a>
 				</li>
 				<div class="clear"></div>

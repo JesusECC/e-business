@@ -3,7 +3,7 @@
 namespace SisBezaFest\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -20,8 +20,6 @@ use SisBezaFest\Paquete;
 class PaypalController extends Controller
 {
     private $_api_context;
-    private $_ClienteId='AbADZXbkx24TyO0DjabqNuS4amC6C8R7iK2xMY31CCZVeOP9GIDquwhRAUJKDyTht-ppcjuygvzPsoDO';
-    private $_ClientSecret='EPKkFlWsZrjYLqVUmTwcXXdHoK-DRArasWowrXNUZs8-83ixjaT3E3CzUqfDC7YL0xIshkoutAFc0eMR';
 
     public function __construct()
 	{
@@ -34,6 +32,7 @@ class PaypalController extends Controller
 	{
         $payer = new Payer();
 		$payer->setPaymentMethod('paypal');
+
         $items = array();
 		$subtotal = 0;
 		$cart = \Session::get('cart');
@@ -54,7 +53,8 @@ class PaypalController extends Controller
         $item_list->setItems($items);
         
 		$details = new Details();
-		$details->setSubtotal($subtotal)->setShipping(0);
+		$details->setSubtotal($subtotal)
+				->setShipping(0);
 
 		$total = $subtotal + 0;
 
@@ -66,19 +66,23 @@ class PaypalController extends Controller
 		$transaction = new Transaction();
 		$transaction->setAmount($amount)
 			->setItemList($item_list)
-            ->setDescription('venta de prueba besazafest App Store');
-            
+			->setDescription('venta de prueba besazafest App Store')
+			->setInvoiceNumber(uniqid());
+			
+		$baseUrl = getBaseUrl();
 		$redirect_urls = new RedirectUrls();
-		$redirect_urls->setReturnUrl(\URL::route('payment.status'))->setCancelUrl(\URL::route('payment.status'));
+		$redirect_urls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
+					  ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
             
         $payment = new Payment();
 		$payment->setIntent('Sale')
 			->setPayer($payer)
 			->setRedirectUrls($redirect_urls)
             ->setTransactions(array($transaction));
-            
-        try {
-            $payment->create($this->_api_context,null);
+		  // return dd($payment->create($this->_api_context));
+		  $request = clone $payment;
+    	try {
+            $payment->create($this->_api_context);
         } catch (\PayPal\Exception\PPConnectionException $ex) {
             if (\Config::get('app.debug')) {
                 echo "Exception: " . $ex->getMessage() . PHP_EOL;
@@ -103,6 +107,7 @@ class PaypalController extends Controller
 		}
 		return \Redirect::route('cart-show')
 			->with('error', 'Ups! Error desconocido.');
+			
     }
 
     //retorno de paypal

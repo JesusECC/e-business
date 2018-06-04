@@ -12,7 +12,7 @@
 <div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<h1><i class="fa fa-shopping-cart"></i>Carrito de compras</h1>
-			@if(isset($cart))
+			@if(isset($cart) && isset($total))
 			<div class="table-responsive-center">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>

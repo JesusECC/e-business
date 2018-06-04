@@ -2,7 +2,7 @@
 return array(
     // set your paypal credential
     'client_id' => 'AbADZXbkx24TyO0DjabqNuS4amC6C8R7iK2xMY31CCZVeOP9GIDquwhRAUJKDyTht-ppcjuygvzPsoDO',
-    'secret' => 'EPKkFlWsZrjYLqVUmTwcXXdHoK-DRArasWowrXNUZs8-83ixjaT3E3CzUqfDC7YL0xIshkoutAFc0eMR',
+    'secret' => 'EJWGHF4aZjxAZtf9XOQyQyXsfipZsCDHnYEIb32BZ0yJPdCxTOmz6w4i86uirBio0ExkbDDndv41I3oZ',
     /**
      * SDK configuration 
      */
@@ -10,7 +10,7 @@ return array(
         /**
          * Available option 'sandbox' or 'live'
          */
-        'mode' => 'sandbox',
+       'mode' => 'sandbox',
         /**
          * Specify the max request time in seconds
          */
